@@ -1,0 +1,111 @@
+import React, { useState } from "react";
+
+export default function Portfolio() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  return (
+    <div className={`${darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-50 text-gray-800"} min-h-screen p-6`}>
+      <div className="max-w-4xl mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-4xl font-bold">Manav Arya Singh</h1>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700"
+          >
+            Toggle {darkMode ? "Light" : "Dark"} Mode
+          </button>
+        </div>
+        <p className="text-lg">Computer Science sophomore at BITS Pilani – Dubai</p>
+        <p className="mt-2">📍 Dubai | 📧 smanavarya@gmail.com | 📞 +971 52 2245856</p>
+        <a
+          href="https://www.linkedin.com/in/manav-arya-singh-3579b4291/"
+          className="text-blue-500 underline mt-1 inline-block"
+        >
+          LinkedIn Profile
+        </a>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-semibold mb-2">About Me</h2>
+          <p>
+            I'm passionate about machine learning and hardware design. Whether building custom mechanical keyboards or
+            training ML models, I enjoy combining creativity with technical precision.
+          </p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-semibold mb-2">Technical Skills</h2>
+          <ul className="list-disc ml-6">
+            <li><strong>Programming:</strong> Python, Java, JavaFX, SQL, Excel</li>
+            <li><strong>Machine Learning:</strong> Scikit-learn, NLP fundamentals</li>
+            <li><strong>Hardware:</strong> Mechanical Keyboard Builds, PCB Assembly, QMK/VIA Firmware</li>
+            <li><strong>Soft Skills:</strong> Leadership, Event Management, Public Speaking</li>
+          </ul>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-semibold mb-2">Projects</h2>
+          <ul className="space-y-4">
+            <li>
+              <h3 className="text-xl font-bold">Custom Mechanical Keyboards</h3>
+              <p>Built 13+ keyboards with unique switches, layouts, and firmware customization using QMK/VIA.</p>
+            </li>
+            <li>
+              <h3 className="text-xl font-bold">Fake News Detection (ML)</h3>
+              <p>Used NLP and Scikit-learn to classify news articles with high accuracy.</p>
+            </li>
+            <li>
+              <h3 className="text-xl font-bold">Finance Tracker</h3>
+              <p>Java-based personal expense manager with clean Swing UI.</p>
+            </li>
+            <li>
+              <h3 className="text-xl font-bold">Automated File Organizer</h3>
+              <p>Python script for sorting files into folders by type.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-semibold mb-2">Experience</h2>
+          <h3 className="text-xl font-bold">Embrizon Technologies – Project Intern</h3>
+          <p className="italic">June – August 2024</p>
+          <p>Worked on real-world tech projects involving ML and software development.</p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-semibold mb-2">Leadership & Activities</h2>
+          <p><strong>Treasurer</strong> – Expressions Literary Club (Aug 2024 – Present)</p>
+          <p>Managed budgeting, organized events, and promoted campus engagement.</p>
+          <p className="mt-2"><strong>Member</strong> – (Aug 2023 – Jul 2024)</p>
+          <p>Organized debates, spoken word, and writing contests.</p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-semibold mb-2">Education</h2>
+          <ul>
+            <li><strong>B.E. in Computer Science</strong>, BITS Pilani – Dubai (Expected Jan 2027)</li>
+            <li>Class XII – CBSE, Apeejay School</li>
+            <li>Class X – CBSE, Amrita Vidyalayam</li>
+          </ul>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-semibold mb-2">Certifications</h2>
+          <ul className="list-disc ml-6">
+            <li>Introduction to Programming Using Python</li>
+            <li>Machine Learning with Python</li>
+            <li>Microsoft Excel</li>
+            <li>Business Analysis & Process Management</li>
+          </ul>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-semibold mb-2">Other Interests</h2>
+          <ul>
+            <li>🎸 Trinity Grade 1 – Electric Guitar (Distinction)</li>
+            <li>🎹 Hindustani Classical Music Grade 2 – Harmonium/Keyboard</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  );
+}
