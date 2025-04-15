@@ -1,0 +1,130 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+
+export default function Portfolio() {
+  const [darkMode, setDarkMode] = useState(true);
+
+  const toggleTheme = () => setDarkMode(!darkMode);
+
+  return (
+    <main className={`min-h-screen font-sans transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+      {/* Theme Toggle */}
+      <div className="p-4 flex justify-end">
+        <button onClick={toggleTheme} className="border px-3 py-1 rounded hover:bg-gray-700 dark:hover:bg-gray-300">
+          {darkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
+      </div>
+
+      {/* Hero Section */}
+      <motion.section className="text-center py-20 px-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">Manav Arya Singh</h1>
+        <p className="text-xl mb-6">Computer Science Sophomore @ BITS Pilani – Dubai</p>
+        <p className="text-md max-w-xl mx-auto">Building tech with purpose | ML Enthusiast | Mechanical Keyboard Tinkerer</p>
+        <div className="mt-6 space-x-4">
+          <a href="#contact" className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-500">Contact Me</a>
+          <a href="/resume.pdf" className="border border-blue-600 px-4 py-2 rounded hover:bg-blue-800">View Resume</a>
+        </div>
+      </motion.section>
+
+      {/* About Me */}
+      <section className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold mb-4">About Me</h2>
+        <p className="max-w-3xl">I'm a second-year Computer Science student at BITS Pilani – Dubai, passionate about Machine Learning, software development, and custom mechanical keyboards. I love building things that solve real problems and enjoy contributing to campus life through leadership roles.</p>
+      </section>
+
+      {/* Education */}
+      <section className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold mb-4">Education</h2>
+        <ul className="space-y-4">
+          <li>B.E. in Computer Science – BITS Pilani, Dubai (2027)</li>
+          <li>Class XII – Apeejay School (CBSE)</li>
+          <li>Class X – Amrita Vidyalayam (CBSE)</li>
+        </ul>
+      </section>
+
+      {/* Experience */}
+      <section className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold mb-4">Experience</h2>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold">Machine Learning Intern – Embrizon Technologies</h3>
+            <p className="text-sm opacity-70">May 2024 – Jul 2024</p>
+            <p>Worked on real-world ML projects, applying machine learning models and software tools.</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold">Treasurer – Expressions Club</h3>
+            <p className="text-sm opacity-70">Aug 2024 – Present</p>
+            <p>Managed event budgets and led campus literary initiatives.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold mb-4">Projects</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            { title: 'Finance Tracker', desc: 'Java app with Java Swing UI to track personal expenses.', link: 'https://github.com/manavarya/finance-tracker' },
+            { title: 'Fake News Detection', desc: 'ML model using NLP to classify fake news articles.', link: 'https://github.com/manavarya/fake-news-detector' },
+            { title: 'Weather App', desc: 'Responsive weather app using HTML/CSS/JS + OpenWeatherMap API.', link: 'https://github.com/manavarya/weather-app' },
+            { title: 'Automated File Organizer', desc: 'Python script to auto-organize files by type.', link: 'https://github.com/manavarya/file-organizer' },
+          ].map(project => (
+            <div key={project.title} className={`p-4 rounded shadow ${darkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
+              <h3 className="font-semibold text-lg">{project.title}</h3>
+              <p className="text-sm mb-2">{project.desc}</p>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-400 text-sm">View on GitHub →</a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Keyboard Builds */}
+      <section className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold mb-4">Keyboard Builds</h2>
+        <p className="mb-6">Custom mechanical keyboards built for sound, feel, and aesthetics. Firmware customized with QMK/VIA.</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            { name: 'Keychron Q1 Pro', specs: '75% layout | Holy Panda switches', img: '/keychron-q1.jpg' },
+            { name: 'Custom Numpad', specs: 'Flamingo switches | VIA compatible', img: '/custom-numpad.jpg' },
+          ].map(kb => (
+            <div key={kb.name} className={`p-4 rounded shadow ${darkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
+              <img src={kb.img} alt={kb.name} className="w-full h-48 object-cover mb-2 rounded" loading="lazy" />
+              <h3 className="font-semibold">{kb.name}</h3>
+              <p className="text-sm">{kb.specs}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold mb-4">Skills</h2>
+        <div className="flex flex-wrap gap-2">
+          {['Python', 'Java', 'JavaScript', 'Machine Learning', 'SQL', 'QMK', 'VIA', 'JavaFX', 'Excel'].map(skill => (
+            <span key={skill} className={`px-3 py-1 rounded-full text-sm ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}>{skill}</span>
+          ))}
+        </div>
+      </section>
+
+      {/* Certifications */}
+      <section className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold mb-4">Certifications</h2>
+        <ul className="space-y-2">
+          <li>Introduction to Programming Using Python</li>
+          <li>Machine Learning with Python</li>
+          <li>Microsoft Excel</li>
+          <li>Business Analysis & Process Management</li>
+          <li>Trinity College London Grade 1 – Electric Guitar (Distinction)</li>
+          <li>Hindustan Classical Music Grade 2 – Harmonium/Keyboard</li>
+        </ul>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="px-6 md:px-20 py-12">
+        <h2 className="text-3xl font-bold mb-4">Contact</h2>
+        <p>Email: <a href="mailto:smanavarya@gmail.com" className="text-blue-400">smanavarya@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/manav-arya-singh-3579b4291/" className="text-blue-400">/manav-arya-singh</a></p>
+      </section>
+    </main>
+  );
+}
